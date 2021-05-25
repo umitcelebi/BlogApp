@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Blog>
+
+@foreach (var blog in Model)
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            @blog.Title
+        </div>
+        <img src="~/img/@blog.Image" class="card-img-top" alt="@blog.Title">
+        <div class="card-body">
+            <h5 class="card-title">@blog.Body</h5>
+            <p class="card-text">@blog.LastUpdatedDate.ToString("d")</p>
+            <a asp-controller="blog" asp-action="Details" asp-route-id="@blog.BLogId" class="btn btn-primary">Details</a>
+        </div>
+    </div>
+}

@@ -1,0 +1,15 @@
+﻿@model Blog
+
+<div class="card">
+    <span class="badge badge-info"><i class="fa fa-history"></i> Added Time -- @Model.AddedDate.ToString("d")</span>
+    <div class="card-header">
+        @Model.Title
+    </div>
+    <img src="~/img/@Model.Image" class="card-img-top" alt="@Model.Title">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Body</h5>
+        <p class="card-text">@Model.Description</p>
+
+        <p class="card-text">Last Updated @Model.LastUpdatedDate.ToString("d")</p>
+    </div>
+</div>

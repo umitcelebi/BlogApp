@@ -1,0 +1,55 @@
+﻿@model Blog
+
+@{
+    ViewData["Title"] = "Create Blog";
+}
+
+
+
+<form asp-controller="blog" asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input class="form-control" asp-for="Title">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Body" class="form-label">Body</label>
+        <input class="form-control" asp-for="Body">
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Description</label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Image</label>
+        <input type="file" class="form-control" id="file" name="file">
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" asp-for="IsApproved" class="form-check-input">
+        <label class="form-check-label" asp-for="IsApproved">Is Approved</label>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" asp-for="IsHome" class="form-check-input">
+        <label class="form-check-label" asp-for="IsHome">Is Home</label>
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" asp-for="IsSlider" class="form-check-input">
+        <label class="form-check-label" asp-for="IsSlider">Is Slider</label>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label">Category Id</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories">
+            <option disabled>Select Category</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<hr />
+<a class="btn btn-dark" asp-action="List">Back</a>

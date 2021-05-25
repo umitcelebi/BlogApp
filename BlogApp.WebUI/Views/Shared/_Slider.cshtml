@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Blog>
+
+<div id="demo" class="carousel slide mb-3" data-ride="carousel">
+    <ul class="carousel-indicators">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            if (i == 0)
+            {
+                <li data-target="#demo" data-slide-to="@i" class="active"></li>
+            }
+            else
+            {
+                <li data-target="#demo" data-slide-to="@i"></li>
+            }
+        }
+    </ul>
+    <div class="carousel-inner">
+        @{ var index = 0;}
+        @foreach (var item in Model)
+        {
+            if (index == 0)
+            {
+                <div class="carousel-item active">
+                    <img src="~/img/@item.Image" alt="@item.Title" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>@item.Title</h3>
+                        <p>@item.Body</p>
+                    </div>
+                </div>
+                index++;
+            }
+            else
+            {
+                <div class="carousel-item">
+                    <img src="~/img/@item.Image" alt="@item.Title" width="1100" height="500">
+                    <div class="carousel-caption">
+                        <h3>@item.Title</h3>
+                        <p>@item.Body</p>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
